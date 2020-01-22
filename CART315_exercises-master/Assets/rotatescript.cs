@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 
 public class rotatescript : MonoBehaviour
 {
+	public float rotate_speed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -13,11 +15,14 @@ public class rotatescript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+		if (Input.GetButton("Fire1"))
+		{
+			this.transform.Rotate(0, rotate_speed, 0);
+		}
+		
 
-		this.transform.Rotate(0, 0.1f*Time.deltaTime, 0);
-
-        // instead of multiplying by Time.deltaTime, you can use FixedUpdate() to ensure a smoothe framerate for the update() function
+        // is using Update() instead of FixedUpdate() consider using Time.deltaTime
 	}
 }
