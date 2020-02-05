@@ -57,7 +57,7 @@ public class trafficLight : MonoBehaviour
 
             if (i == targetstate)
             {
-                thislight.GetComponent<Light>().intensity = 3f;
+                thislight.GetComponent<Light>().intensity = 100f;
             }
             else
             {

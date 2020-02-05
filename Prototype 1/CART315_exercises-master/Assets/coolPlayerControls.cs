@@ -6,6 +6,7 @@ public class coolPlayerControls : MonoBehaviour
 {
     public GameObject thecamera;
     public GameObject create;
+    public int score = 0;
 
     bool mousepress = false;
 
