@@ -10,14 +10,22 @@ public class playerController : MonoBehaviour
     GameObject plane;
     GameObject rock;
     GameObject guy;
+    public float thrust = 10f;
+    public float jumpthrust = 10f;
+    string state = "guy";
+    bool isGrounded = false;
+    GameObject the_other_object;
+    Vector3 lastpos;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
         plane = GameObject.Find("plane");
         guy = GameObject.Find("dude");
         rock = GameObject.Find("ball");
+        the_other_object = GameObject.Find("ground");
 
 
         switchToGuy();
@@ -28,7 +36,58 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        switch (state)
+        {
+            case "guy":
+                moveFrontBack();
+                moveLeftRight();
+                break;
+            case "plane":
+                glide();
+                moveLeftRight();
+                break;
+        }
+        
 
+       
+
+        changeState();
+        checkGround();
+
+    }
+
+    void checkGround()
+    {
+        Vector3 currentpos = this.transform.position;
+        int y1 = (int)(currentpos.y * 1000f);
+        int y2 = (int)(lastpos.y * 1000f);
+
+        if (y1 == y2)
+        {
+            isGrounded = true;
+        }
+        else isGrounded = false;
+
+        lastpos = currentpos;
+    }
+
+    void glide()
+    {
+
+        if (!isGrounded)
+        {
+            transform.Translate(new Vector3(-1, 0, 0) * (speed));
+
+        }
+        
+    }
+
+    
+
+
+
+    void moveFrontBack()
+    {
         if (Input.GetKey("up"))
         {
             //Debug.Log("forward");
@@ -38,7 +97,10 @@ public class playerController : MonoBehaviour
         {
             transform.Translate(new Vector3(1, 0, 0) * (speed));
         }
+    }
 
+    void moveLeftRight()
+    {
         if (Input.GetKey("left"))
         {
             this.transform.Rotate(0, -rotate_speed, 0);
@@ -47,9 +109,6 @@ public class playerController : MonoBehaviour
         {
             this.transform.Rotate(0, rotate_speed, 0);
         }
-
-        changeState();
-
     }
 
     void changeState()
@@ -73,6 +132,9 @@ public class playerController : MonoBehaviour
         guy.SetActive(true);
         plane.SetActive(false);
         rock.SetActive(false);
+
+        rb.mass = 10f;
+        state = "guy";
     }
 
     void switchToRock()
@@ -80,6 +142,10 @@ public class playerController : MonoBehaviour
         guy.SetActive(false);
         plane.SetActive(false);
         rock.SetActive(true);
+
+        rb.mass = 10f;
+        rb.AddForce(new Vector3(0,-1,0) * thrust);
+        state = "rock";
     }
 
     void switchToPlane()
@@ -87,5 +153,9 @@ public class playerController : MonoBehaviour
         guy.SetActive(false);
         plane.SetActive(true);
         rock.SetActive(false);
+
+        rb.mass = 0.1f;
+        rb.AddForce(transform.up * jumpthrust);
+        state = "plane";
     }
 }
