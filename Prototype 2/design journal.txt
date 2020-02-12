@@ -1,0 +1,26 @@
+For each prototype, the design journal must include:
+Design question to be answered by the prototype
+Survey for playtesters
+Notes from playtesting and reflection on result of playtest
+
+
+Paper guy game 
+
+User incarnates a character made of paper, he can switch between different stances or paper folds that enable different types of moves. The paper "guy" can walk around, the paper "rock" falls down and smashes enemies, and the paper plane jumps up and glides around. There are two piles of boxes for the player to climb and move about. One pile is colored using a blank material while the other features various colors, giving two different types of visual environments to explore. There are also enemies that follow the player, meant to be smashed using the rock stance. At the time of the playlets however, collisions with enemies cause more issues than anything else, so they don't make up a very important part of this prototype. 
+
+The aim of this playtest is to explore how the user would want to interact with his environment, and how he or she uses the different stances creatively in order to get around. With a few different prototypical systems in place, I want to see what players naturally move towards and find inciting in this scene. 
+
+Playtest question:
+- Did you enjoy using the different stances in order to get around, 
+- Do you appreciate the extra complexity in moving around or would you rather moving freely without changing stances 
+- Did the environment and motion mechanics create interesting situations for you personally?
+- Can you comment about the different color palettes of the two box piles?
+- Do you like the fantasy of the paper character, do you feel connected to your avatar?
+
+Feedback, observations:
+- weird camera jerking is fun, really puts you into the shoe of the main character, especially in the more uncontrollable moments. While unintended, it looks like it makes sense to some extent since the character is made of paper, and would be very sensitive to any collisions. 
+- attempting to keep balance was the main challenge for most. This wasn't entirely intended (though predictable), however most players ended up enjoying this as a game in itself. 
+- in many instances the player flips over completely and the camera shift to being below the ground. Weirdly, in those cases the player could sort of see enemies coming by looking at the shadows cast through the ground. This created an interesting anticipation effect, and also came across as a manner of perhaps flip back into position by waiting for enemies to show up and crash into the player. 
+- controlling the plane is very satisfying in itself and could stand alone as a game mechanic
+- player can infinitely jump up in plane mode which wasn't intended. This changes how the environment is used, vis a vis what I had initially intended. I thought the player would have to inch his way to the top of the box pile in order to glide down from the top, but instead players were using the plane's double jump to comfortably fly around the scene. Looks like this might have offered a nice contrast to the unpredictable controls happening on the around. 
+- colored environment makes it much more easy to recognize the topology of the scene. Colors offer a nice contrast that brings out the paper character's plain white material. 

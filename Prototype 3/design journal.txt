@@ -1,0 +1,13 @@
+For each prototype, the design journal must include:
+Design question to be answered by the prototype
+Survey for playtesters
+Notes from playtesting and reflection on result of playtest
+
+cop escaping game 
+In this game prototype you drive a car through a city, picking up coins as you go. There are traffic lights and text feedback telling you if you crossed a green, yellow or red light. Cops (white capsules) appear at random locations and have a chance of catching you crossing red lights. The idea is that this could lead to some game where you escape the cops' gaze and collect as many goodies as possible - maybe there could even be car chases. 
+
+Design qustion to be answered
+Which visual components are most important for a nice game flow?
+Does it spark joy?
+
+Survey for playtesters
