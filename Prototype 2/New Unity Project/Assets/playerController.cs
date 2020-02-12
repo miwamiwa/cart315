@@ -16,7 +16,11 @@ public class playerController : MonoBehaviour
     bool isGrounded = false;
     GameObject the_other_object;
     Vector3 lastpos;
-
+    float shockTime = 0f;
+    bool checkCollision = false;
+   public float smashDistance = 5f;
+    public float explodeforce = 200f;
+    public float currentYrot = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,8 @@ public class playerController : MonoBehaviour
             case "guy":
                 moveFrontBack();
                 moveLeftRight();
+                Debug.Log(currentYrot);
+               // gameObject.transform.eulerAngles = new Vector3(0,currentYrot,0);
                 break;
             case "plane":
                 glide();
@@ -62,10 +68,7 @@ public class playerController : MonoBehaviour
         int y1 = (int)(currentpos.y * 1000f);
         int y2 = (int)(lastpos.y * 1000f);
 
-        if (y1 == y2)
-        {
-            isGrounded = true;
-        }
+        if (y1 == y2) isGrounded = true;
         else isGrounded = false;
 
         lastpos = currentpos;
@@ -82,7 +85,30 @@ public class playerController : MonoBehaviour
         
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (checkCollision)
+        {
+            //collision.gameObject.tag == "enemy"
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+           
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, smashDistance);
+                    foreach (Collider nearbyObject in colliders)
+                    {
+                        Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+                        if (rb != null&&nearbyObject.CompareTag("enemy"))
+                        {
+                            Debug.Log("boom");
+                            rb.AddExplosionForce(explodeforce,transform.position,smashDistance);
+                        }
+           
+            }
+
+            checkCollision = false;
+        }
+    }
+
+
 
 
 
@@ -104,10 +130,12 @@ public class playerController : MonoBehaviour
         if (Input.GetKey("left"))
         {
             this.transform.Rotate(0, -rotate_speed, 0);
+            currentYrot = gameObject.transform.rotation.y;
         }
         else if (Input.GetKey("right"))
         {
             this.transform.Rotate(0, rotate_speed, 0);
+            currentYrot = gameObject.transform.rotation.y;
         }
     }
 
@@ -145,6 +173,7 @@ public class playerController : MonoBehaviour
 
         rb.mass = 10f;
         rb.AddForce(new Vector3(0,-1,0) * thrust);
+        checkCollision = true;
         state = "rock";
     }
 
