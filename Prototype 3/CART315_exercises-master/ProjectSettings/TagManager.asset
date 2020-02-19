@@ -8,6 +8,10 @@ TagManager:
   - uitext
   - trafficlights
   - cop
+  - enemy
+  - spawnlocation
+  - levelup
+  - doggo
   layers:
   - Default
   - TransparentFX

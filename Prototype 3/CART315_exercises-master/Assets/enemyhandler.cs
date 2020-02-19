@@ -9,6 +9,7 @@ public class enemyhandler : MonoBehaviour
     public float speed = 20;
     float nextShot = 0;
     public float shotInterval = 10f;
+    public bool isTargetCarrier = false;
 
     // Start is called before the first frame update
     void Start()

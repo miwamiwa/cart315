@@ -21,25 +21,15 @@ public class spawnenemies : MonoBehaviour
     {
         if(Time.time > nextShot)
         {
-
-            Mesh mesh = GameObject.Find("spawnarea").GetComponent<MeshFilter>().mesh;
-            Vector3[] vertices = mesh.vertices;
             
-            int randomPick = Random.RandomRange(0, vertices.Length);
-            
+            GameObject[] Locations = GameObject.FindGameObjectsWithTag("spawnlocation");
 
-            Vector3 v = vertices[randomPick];
-            Vector3 spawnPoint = new Vector3(v.x, GameObject.Find("enemy").transform.position.y+50f, v.z);
-            Debug.Log(spawnPoint);
-            var q = Random.Range(0, vertices.Length);
-                spawnPoint = transform.TransformPoint(vertices[q]);
-                Instantiate(enemy, spawnPoint, transform.rotation);
-            
-
-
-          //  Rigidbody instantiatedProjectile = Instantiate(enemy, new Vector3, Quaternion.identity) as Rigidbody;
-
-            //instantiatedProjectile.velocity = transform.TransformDirection(projectileVelocity);
+            Vector3 spawnPoint = Locations[Random.Range(0, Locations.Length)].transform.position;
+            Rigidbody newEnemy = Instantiate(enemy, spawnPoint, transform.rotation);
+            if (GameObject.Find("ThirdPersonController").GetComponent<shooterscript>().killCount % 5 == 0)
+            {
+                newEnemy.GetComponent<enemyhandler>().isTargetCarrier = true;
+            }
             nextShot = Time.time + shotInterval;
         }
     }
