@@ -8,7 +8,7 @@ Doggo game
 Description:
 In this prototype, the player must shoot enemy capsules until one of them drops a spherical object which triggers a change in scenery. During this change, the ground beneath the player suddenly shrinks, revealing a new platform below the player, where he will continue to shoot at capsules. This cycle repeats. The ground is a giant "dog" model that shrinks to teddy bear size. The idea is that the old level platform could also fall down to the next platform, as some kind of trophee. 
 Press WASD to move and 1 to shoot. 
-A few technical issues: items from the platform above don't always stick to the ground when they fall to the platform below. Including player! performance seems mixed. There must be some improvemenets possible in the script. Player can also fall directly off the new platform. I tried freezing his x-z position as he falls but that drew other unexpected behaviors.
+A few technical issues: items from the platform above don't always stick to the ground when they fall to the platform below. Including player! performance seems mixed. There must be some improvements possible in the script. Player can also fall directly off the new platform. I tried freezing his x-z position as he falls but that drew other unexpected behaviors. There's also a problem with the 3rd platform, which the player always clips through.. but the 1st transition works and is totally testable. 
 
 Playtest goals:
 With this prototype I could test a few questions - how does the player react to the cycle of falling to the next platform. Is keeping items from one platform to the next useless or an enjoyable feature. I placed rings around the scene so the player could get an idea of how fast and far he is falling - is that effective in any way? Visually the rings could be replaced by clouds. 
@@ -19,3 +19,21 @@ Turning speed allows you to move and shoot as you wish?
 When you fall to the next platform would you like to keep the objects from the last one or don't care?
 When you fall, do you feel like the rings in the background are providing you with useful visual feedback?
 Is the rolling ball trigger too much or something to adapt the environment around?
+
+
+FEEDBACK:
+- Shooting mechanic works, it's satisfying to see the projectiles remain on the platform and to be able to interact with them/ push them around. 
+- aiming the shot would be better done with the mouse rather than left-right controls
+- left-right rotation happens too fast, hard to control. 
+
+- being able to look up and down would be interesting, since the platform is large and feels explorable. Would also be interesting to notice the platform above/below or to see it appearing. Aiming with the mouse would provide that improvement. Players are always surprised when they either notice or are told that they're running around on a dog, so being able to view the topology more freely would maybe allow that to discover that on their own more consistently. 
+
+- might be interesting to fall quickly from one level to the next, conversely other say it might they feel more compelled to stick around on the platform and fight enemies. 
+
+- one play tester tried setting her self up in order to fall on specific locations on the next platform, so that she could explore the high points. Maybe exploring the environment could be an interesting direction to look at. Placing a bet on which point you would land seems like an interesting product of this environment.
+
+- it came up that maybe moving quickly from one platform to the next could be interesting, as it would emphasize that scene transition. 
+
+- shooting mechanic works, could be refined into a combat system
+
+- shooting mechanic would also be interesting converted into a building tool! That again would emphasize exploring the world. 
