@@ -3,11 +3,19 @@ Design question to be answered by the prototype
 Survey for playtesters
 Notes from playtesting and reflection on result of playtest
 
-cop escaping game 
-In this game prototype you drive a car through a city, picking up coins as you go. There are traffic lights and text feedback telling you if you crossed a green, yellow or red light. Cops (white capsules) appear at random locations and have a chance of catching you crossing red lights. The idea is that this could lead to some game where you escape the cops' gaze and collect as many goodies as possible - maybe there could even be car chases. 
+Doggo game
 
-Design qustion to be answered
-Which visual components are most important for a nice game flow?
-Does it spark joy?
+Description:
+In this prototype, the player must shoot enemy capsules until one of them drops a spherical object which triggers a change in scenery. During this change, the ground beneath the player suddenly shrinks, revealing a new platform below the player, where he will continue to shoot at capsules. This cycle repeats. The ground is a giant "dog" model that shrinks to teddy bear size. The idea is that the old level platform could also fall down to the next platform, as some kind of trophee. 
+Press WASD to move and 1 to shoot. 
+A few technical issues: items from the platform above don't always stick to the ground when they fall to the platform below. Including player! performance seems mixed. There must be some improvemenets possible in the script. Player can also fall directly off the new platform. I tried freezing his x-z position as he falls but that drew other unexpected behaviors.
 
-Survey for playtesters
+Playtest goals:
+With this prototype I could test a few questions - how does the player react to the cycle of falling to the next platform. Is keeping items from one platform to the next useless or an enjoyable feature. I placed rings around the scene so the player could get an idea of how fast and far he is falling - is that effective in any way? Visually the rings could be replaced by clouds. 
+
+Survey for playtesters:
+shooting: Is shooting mechanic ok, would it be better to include a separate input for aiming since the only way to move is physically move the character? 
+Turning speed allows you to move and shoot as you wish?
+When you fall to the next platform would you like to keep the objects from the last one or don't care?
+When you fall, do you feel like the rings in the background are providing you with useful visual feedback?
+Is the rolling ball trigger too much or something to adapt the environment around?
